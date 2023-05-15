@@ -25,7 +25,7 @@ public class DiceParser{
     private static class StringStream{
 	StringBuffer buff;
 	public StringStream(String s){
-	    buff=new StringBuffer(s)
+	    buff=new StringBuffer(s);//thiếu ;
 	}
 	private void munchWhiteSpace() {
 	    int index=0;
@@ -43,22 +43,21 @@ public class DiceParser{
 	    return buff.toString().equals("");
 	}
 	public Integer getInt(){
-//	    return readInt();
+	    return readInt(); // thiếu return bỏ comment
 	}
 	public Integer readInt(){
 	    int index=0;
 	    char curr;
 	    munchWhiteSpace();
 	    while(index<buff.length()){
-		curr=buff:charAt(index);
+		curr=buff.charAt(index);//dấu 2 chấm thay bằng dấu chấm
 		if(!Character.isDigit(curr))
 		    break;
 		index++;
 	    }
 	    try{
 		Integer ans;
-		ans=Integer.parseInt(buff.substring(0,
-						    index));
+		ans=Integer.parseInt(buff.substring(0, index));
 		buff=buff.delete(0,index);
 		return ans;
 	    }
@@ -192,7 +191,7 @@ public class DiceParser{
 	    dsides=num;
 	}
 	else {
-	    returnnull;
+	    return null;// return null phải cách ra
 	}
 	num=ss.readSgnInt();
 	int bonus;
@@ -200,9 +199,7 @@ public class DiceParser{
 	    bonus=0;
 	else
 	    bonus=num;
-	return new DieRoll(ndice,
-			   dsides,
-			   bonus);	
+	return new DieRoll(ndice,dsides,bonus);	// không được xuống hàng
 	
     }
     private static DieRoll parseDTail(DieRoll r1,
@@ -218,12 +215,12 @@ public class DiceParser{
 	}
     }
     private static void test(String s) {
-	Vector<DieRoll> v=parseRoll(s);
+	Vector<DieRoll> v=parseRoll(s);  
 	int i;
 	if(v==null)
 	    System.out.println("Failure:"+s);
 	else{
-	    System.out.println("Results for "+s+":");
+	    System.out.println("Results for "+s+":");    
 	    for(i=0;i<v.size();i++){
 		DieRoll dr=v.get(i);
 		System.out.print(v.get(i));
@@ -234,13 +231,13 @@ public class DiceParser{
     }
     public static void main(String[] args) {
 	test("d6");
-	tests("2d6");
+	test("2d6");//test dư chữ S   
 	test("d6+5");
 	test("4X3d8-5");
 	test("12d10+5 & 4d6+2");
 	test("d6 ; 2d4+3");
 	test("4d6+3 ; 8d12 -15 ; 9d10 & 3d6 & 4d12 +17");
-        test("4d6 + xyzzy");
+    test("4d6 + xyzzy");
 	test("hi");
 	test("4d4d4");
     }
