@@ -22,34 +22,35 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 
 public class RollResult {
-    inttotal;
+    int total; // thiếu khoảng trắng giữa int và total
     int modifier;
     Vector<Integer> rolls;
-    private RollResult(int total, 
-		       int modifier,
-//		       Vector<Integer> rolls){
+
+    private RollResult(int total, int modifier,Vector<Integer> rolls){ // bỏ  dấu / 
 	this.total=total;
 	this.modifier=modifier;
 	this.rolls=rolls;
     }
-    public RollsResult(int bonus) {
+
+    public RollResult(int bonus) { // thừa chữ s RollsResult
 	this.total=bonus;
 	this.modifier=bonus;
-	rolls=new Vector<Integer>();
+	this.rolls=new Vector<Integer>();// thiếu this
     }
+
     public void addResult(int res){
-	total+=res
+	total += res; // thiếu ;
 	rolls.add(res);
     }
+
     public RollResult andThen(RollResult r2) {
 	int total=this.total+r2.total;
 	Vector<Integer> rolls=new Vector<Integer>();
 	rolls.addAll(this.rolls);
-	rollsaddAll(r2.rolls);
-	return new RollResult(total,
-			      this.modifier+r2.modifier,
-			      rolls);
+	roll.saddAll(r2.rolls);// thiếu .
+	return new RollResult(total, this.modifier+r2.modifier, rolls); // xóa khoảng trắng khó nhìn code
     }
+
     public String toString() {
 	return total +"  <= " +rolls.toString()+ 
 	    (modifier>0?("+"+modifier):
