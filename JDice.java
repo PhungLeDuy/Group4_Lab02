@@ -25,13 +25,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 public class JDice {
     static final String CLEAR="Clear";
-    static finalString ROLL="Roll Selection";
+    static final String ROLL="Roll Selection";// final String cách ra
     static void showError(String s) {
     }
     private static class JDiceListener implements ActionListener {
 	Vector<String> listItems;
-	JList resultList;
-	JComboBox inputBox;
+	JList<String> resultList;// thiếu <String>
+	JComboBox<String> inputBox;//Thiếu <String>
 	long lastEvent; /* hack to prevent double events with text
 			   entry */
 	public JDiceListener(JList resultList,
@@ -55,17 +55,16 @@ public class JDice {
 		for(int i=0;i<arr.length-2;i++) {
 		    name=arr[i]+"=";
 		}
-		if(arr.length>=2)
-		    name=name+arr[arr.length-2];
+		if(arr.length>=2){// thiếu dấu {
+		    name + =arr[arr.length-2];
 		doRoll(name,arr[arr.length-1]);
-	    }
-	    else if(e.getActionCommand().equals(CLEAR)){ 
-		doClears();
-	    }
-	    else {
+	    }else if(e.getActionCommand().equals(CLEAR)){ 
+			doClears();
+	    }else {
 		doRoll(null,e.getActionCommand());
 	    }
 	}
+} //thiếu}
 	private void doClear(){
 	    resultList.clearSelection();
 	    listItems.clear();
@@ -123,9 +122,9 @@ public class JDice {
 //	JFrame jf=new JFrame("Dice Roller");
 	Container c=jf.getContentPane();
 	c.setLayout(new BorderLayout());
-	JList jl=new JList()
-	cadd(jl,BorderLayout.CENTER);
-	JComboBox jcb=new JComboBox(v);
+	JList<String> jl=new JList();// thiếu <String> và dấu ;
+	c.add(jl,BorderLayout.CENTER);// thiếu dấu . giữa C và add
+	JComboBox<String> jcb=new JComboBox(v);// thiếu <String>
 	jcb.setEditable(true);
 	c.add(jcb,BorderLayout.NORTH);
 	JDiceListener jdl=new JDiceListener(jl,jcb);
