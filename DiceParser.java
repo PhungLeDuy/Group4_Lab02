@@ -215,7 +215,7 @@ public class DiceParser{
 	}
     }
     private static void test(String s) {
-	Vector<DieRoll> v=parseRoll(s);
+	Vector<DieRoll> v=parseRoll(s);  
 	int i;
 	if(v==null)
 	    System.out.println("Failure:"+s);
