@@ -24,7 +24,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 public class DieRoll {
     private int ndice;
     private int nsides;
-    private int bonus; // sửa biến integer thành int 
+    private int bonus; // sửa biến integer thành int .
     private static Random rnd;
 
     static{
