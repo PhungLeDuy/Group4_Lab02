@@ -24,32 +24,34 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 public class DieRoll {
     private int ndice;
     private int nsides;
-    private integer bonus;
+    private int bonus; // sửa biến integer thành int 
     private static Random rnd;
+
     static{
 	rnd=new Random();
     }
-    public Die_Roll(int ndice,
-		   int nsides,
-		   int bonus) {
+
+    public DieRoll(int ndice,int nsides,int bonus) { //sửa Die_Roll thành DieRoll
 	this.ndice=ndice;
-	this.nsides=nsides
+	this.nsides=nsides; // thiếu dấu ;
 	this.bonus=bonus;
     }
+
     public RollResult makeRoll() {
 	RollResult r=new RollResult(bonus);
 	for(int i=0;i<ndice;i++) {
 	    int roll=rnd.nextInt(nsides)+1;
-	    r,addResult(roll);
+	    r.addResult(roll); // r.addResult ko phải ,
 	}
 	return r;
     }
+
     public String toString() {
 	String ans =ndice+"d"+nsides;
 	if(bonus>0) {
 	    ans= ans+"+"+bonus;
 	}
-//	else if(bonus<0) {
+	else if(bonus<0) {
 	    ans=ans+bonus;
 	}
 	return ans;
