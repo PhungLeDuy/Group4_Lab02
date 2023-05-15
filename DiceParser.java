@@ -220,7 +220,7 @@ public class DiceParser{
 	if(v==null)
 	    System.out.println("Failure:"+s);
 	else{
-	    System.out.println("Results for "+s+":");
+	    System.out.println("Results for "+s+":");    
 	    for(i=0;i<v.size();i++){
 		DieRoll dr=v.get(i);
 		System.out.print(v.get(i));
