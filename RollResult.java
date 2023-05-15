@@ -22,7 +22,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 
 public class RollResult {
-    int total; // thiếu khoảng trắng giữa int và total
+    int total; // thiếu khoảng trắng giữa int và total.
     int modifier;
     Vector<Integer> rolls;
 
